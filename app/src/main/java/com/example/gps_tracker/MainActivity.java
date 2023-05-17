@@ -9,11 +9,13 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +52,18 @@ public class MainActivity extends AppCompatActivity implements LocListenerInterf
         builder.setTitle(R.string.dialog_title);
         @SuppressLint("InflateParams")
         ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.dialog_layout, null);
+        builder.setPositiveButton(R.string.dialog_button, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+        builder.setView(cl);
+        builder.show();
+    }
+
+    public void onClickDistance(View view){
+        showDialog();
     }
 
     @Override
