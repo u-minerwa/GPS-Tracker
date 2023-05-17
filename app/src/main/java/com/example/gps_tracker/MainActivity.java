@@ -1,16 +1,20 @@
 package com.example.gps_tracker;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements LocListenerInterf
     private Location lastLocation;
     private MyLogListener myLocListener;
     private int distance;
+    private ProgressBar pb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +34,22 @@ public class MainActivity extends AppCompatActivity implements LocListenerInterf
     }
 
     private void init(){
+        tvVelocity = findViewById(R.id.tvVelocity);
+        tvDistance = findViewById(R.id.tvDistance);
+        pb = findViewById(R.id.progressBar);
+        pb.setMax(1000);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         myLocListener = new MyLogListener();
         myLocListener.setLocListenerInterface(this);
-        tvVelocity = findViewById(R.id.tvVelocity);
-        tvDistance = findViewById(R.id.tvDistance);
+
+        checkPermission();
+    }
+
+    private void showDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.dialog_title);
+        @SuppressLint("InflateParams")
+        ConstraintLayout cl = (ConstraintLayout) getLayoutInflater().inflate(R.layout.dialog_layout, null);
     }
 
     @Override
