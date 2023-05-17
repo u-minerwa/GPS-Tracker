@@ -103,9 +103,10 @@ public class MainActivity extends AppCompatActivity implements LocListenerInterf
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 100 && grantResults[0] == RESULT_OK){
             checkPermission();
-        } else {
-            Toast.makeText(this, "NO GPS PERMISSION", Toast.LENGTH_SHORT).show();
         }
+        //  else {
+        //      Toast.makeText(this, "NO GPS PERMISSION", Toast.LENGTH_SHORT).show();
+        //  }
     }
 
     private void checkPermission(){                     //menyalas
