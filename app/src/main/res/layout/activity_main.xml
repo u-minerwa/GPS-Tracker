@@ -10,7 +10,7 @@
         android:id="@+id/tvDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onclickDistance"
+        android:onClick="onClickDistance"
         android:text="Hello World!"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -49,5 +49,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvVelocity"
         app:layout_constraintVertical_bias="0.345" />
+
+    <TextView
+        android:id="@+id/tvVelocityDA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvVelocity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvVelocity"
+        app:layout_constraintTop_toTopOf="@+id/tvVelocity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
