@@ -109,11 +109,21 @@ public class MainActivity extends AppCompatActivity implements LocListenerInterf
         //  }
     }
 
-    private void checkPermission(){                     //menyalas
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+    private void checkPermission2(){                     //menyalas
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 100);
         } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 125, 1, myLocListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3, 1, myLocListener);
+        }
+    }
+
+    private void checkPermission(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+            && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 100);
+        } else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 3, 1, myLocListener);
         }
     }
 

@@ -2,5 +2,8 @@
     <string name="app_name">GPS_Tracker</string>
     <string name="dialog_title">Расстояние</string>
     <string name="dialog_button">Готово!</string>
+    <string name="Set_Dist">Установите дистанцию</string>
+    <string name="minus">-</string>
+    <string name="Null_0">0</string>
 </resources>
 
